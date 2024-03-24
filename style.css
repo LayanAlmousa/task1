@@ -1,0 +1,268 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    margin:0;
+    font-family: 'Poppins';
+}
+
+.wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Nav */
+
+header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+    margin:4em;
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    gap:4.1em;
+    margin: 0;
+}
+nav a{
+    text-decoration:none ;
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    position: relative;
+}
+nav a.active:before{
+    position: absolute;
+    content: "";
+    width: 35%;
+    height: 1px;
+    border-bottom: 2px solid black;
+    bottom: -6px;
+}
+
+nav a::before{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 1px;
+    border-bottom: 2px solid black;
+    bottom: -6px;
+    transition: width .3s;
+}
+
+/* Hero */
+main{
+    display:flex;
+    margin-top: 6em;
+    gap: 8em;
+}
+.left-col{
+    width:45%;
+}
+
+
+h1{
+    font-size: 5.2rem;
+    font-family: 'Playfair Display';
+    font-weight: normal;
+    margin: 0;
+}
+
+.subhead{
+    font-size: 1.8rem;
+}
+.btns{
+    margin: 5em 0;
+}
+.btns, .spring-btn{
+    display: flex;
+    gap:2em;
+}
+
+.browse-btn{
+    background-color: #f2ecdf;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    border-radius: 1.9em;
+    padding: 1em 2em;
+}
+.spring-btn{
+    font-size: 1.8rem;
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 1em 0;
+
+}
+
+.spring-btn svg{
+    width: 20px;
+    transition: transform .3s;
+}
+
+.announcement{
+    display: flex;
+    gap:3em;
+    align-items: center;
+    border: solid black 1px;
+    border-radius: 1.9em;
+    padding: 5em;
+    position: relative;
+    
+}
+.announcement:before{
+    position: absolute;
+    content: "";
+    background-image: url('images/confetti.svg');
+    width: 100px;
+    height: 100px;
+    top:-20px;
+    left:-20px;
+    z-index: 2;
+}
+
+p.attract{
+    font-size: 3.3rem;
+    margin: 0;
+    font-weight: 200;
+    line-height: 100%;
+}
+p.content{
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.right-col{
+    flex-grow: 1;
+    display: grid;
+    gap: 2.3em;
+    grid-template-columns: repeat(2,auto);
+    grid-template-areas: 
+    "left right"
+    "left bottom";
+
+}
+.product{
+    background: gray;
+    border-radius: .8em;
+    padding: 1.1em;
+    display: flex;
+    align-items: end;
+    background-size: 150%;
+    transition: background-size .3s;
+}
+
+.p1{
+grid-area: left;
+background-image: url('images/clothing1.jpg');
+position: relative;
+}
+.p1:before{
+    position: absolute;
+    content: "";
+    background: url('images/tag.svg') no-repeat ;
+    width: 100%;
+    height: 100%;
+    top: 20px;
+    left: -30px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.p2{
+    background-image: url('images/clothing2.jpg');
+}
+.p3{
+    background-image: url('images/clothing3.jpg');
+}
+
+.product-details{
+    background-color: white;
+    border-radius: 1.2em;
+    padding: 2em;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform .3s;
+}
+
+.product-details a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin: 0;
+}
+.product-details p{
+    font-size: 1.4rem;
+    margin: 0;
+}
+.product-details p.price{
+    font-size: 1.7rem;
+}
+
+/* Microinteractions */
+
+nav a:hover::before{
+    width: 35%;
+}
+
+.browse-btn:hover {
+    background-color: #efe6dc;
+    -webkit-transform: translateY(-0.1em);
+	transform: translateY(-0.1em);
+    box-shadow:  0 1.2em 1.6em 0 rgba(0,0,0,0.24);
+}
+
+.spring-btn:hover svg{
+    transform: translateX(10px);
+}
+
+.spring-btn:hover{
+    text-decoration: underline;
+}
+
+.product:hover{
+    background-size: 160%;
+}
+
+.product:hover .product-details{
+    transform: translateY(-20px);
+}
+
+.overlay{
+    position: absolute;
+    z-index: 999;
+    background: white;
+    width: 100%;
+    height: 100%;
+    animation: reveal 1s ease-in forwards;
+    transform-origin: bottom;
+}
+@keyframes reveal {
+    from{
+        transform: scaleY(1);
+    }to{
+        transform: scaleY(0);
+    }
+    
+}
+main{
+    animation: growIn 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    transform: scale(.4);
+}
+@keyframes growIn {
+    to{
+        transform: scale(1);
+    }
+    
+}
